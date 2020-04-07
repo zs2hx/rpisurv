@@ -159,14 +159,14 @@ class CameraStream:
                 return False
         elif self.scheme in ["http","https"]:
              try:
-                connection = self._urllib2open_wrapper()
-                if connection.getcode() == 200:
+                #connection = self._urllib2open_wrapper()
+                #if connection.getcode() == 200:
                     logger.debug("CameraStream: " + self.name + " " + str(self.obfuscated_credentials_url) + " Connectable")
                     return True
-                else:
-                    logger.error("CameraStream: " + self.name + " " + str(self.obfuscated_credentials_url) + " Not Connectable (http response code: " + str(connection.getcode()) + ")")
-                    return False
-                connection.close()
+                #else:
+                #    logger.error("CameraStream: " + self.name + " " + str(self.obfuscated_credentials_url) + " Not Connectable (http response code: " + str(connection.getcode()) + ")")
+                #    return False
+                # connection.close()
              except urllib2.URLError as e:
                 logger.error("CameraStream: " + self.name + " " + str(self.obfuscated_credentials_url) + " Not Connectable (URLerror), " + repr(e))
                 return False
